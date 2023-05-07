@@ -1,6 +1,6 @@
 # Todo App
 
-This Todo proj is a web application that helps users to manage their tasks and keep track of their progress. With this app, you can create new tasks, edit existing tasks, set priorities, and delete tasks that are no longer needed.
+This Todo app;ication is a web application that helps users to manage their tasks and keep track of their progress. With this app, you can create new tasks, edit existing tasks, set priorities, and delete tasks that are no longer needed.
 
 ## Features
 
