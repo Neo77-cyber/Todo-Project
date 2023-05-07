@@ -12,43 +12,34 @@
     </title>
   </head>
   <body>
-    <section class="vh-100" style="background-color: #e2d5de;">
-        <div class="container py-5 h-100">
-          <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col col-xl-10">
-      
-              <div class="card" style="border-radius: 15px;">
-                <div class="card-body p-5">
-      
-                  <h6 class="mb-3">Awesome Todo List</h6>
-                  <h3>Delete: {{note.newtasks}}</h3>
-                  <form method = 'POST'>
-                      <br/>
-                      <div class = "form-group">
-                      {% csrf_token %}
-                      
-                      <strong>Are you sure?!</strong><br/><br/>
-                      <button class="btn btn-secondary">Delete Post!</button>
-                  
+   
+    <section class="vh-100" style="background-color: #eee;">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col col-lg-9 col-xl-7">
+            <div class="card rounded-3">
+              <div class="card-body p-4">
+    
+                <h4 class="text-center my-3 pb-3">To Do App</h4>
+    
+                <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2" method="POST">
+                  {%csrf_token%}
+                  {{form.as_p}}
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Edit Task</button>
                   </div>
-                </div>
+                </form>
+    
                 
-                
-                </div>
-      
-                 
-               
-                
-      
-                </div>
+    
               </div>
-      
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-    </div>
+    
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -62,3 +53,35 @@
     -->
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

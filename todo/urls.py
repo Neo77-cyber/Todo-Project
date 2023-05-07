@@ -3,7 +3,8 @@ from todo import views
 
 
 urlpatterns = [
-    path('', views.allnotes, name = 'home'),
-    path('del/<int:pk>', views.deletetasks, name ='del')
+    path('', views.home, name = 'home'),
+    path('del/<int:pk>', views.deletetask, name ='deletetask'),
+    path('edittask/<int:pk>', views.edittask, name = 'edittask')
 
 ]

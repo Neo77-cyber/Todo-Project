@@ -6,7 +6,7 @@ from .models import Task
 class TodoForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ('newtasks',)
+        fields = ('newtasks','priority')
 
 
         widgets = {

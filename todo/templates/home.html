@@ -13,52 +13,61 @@
   </head>
   <body>
    
-    <section class="vh-100" style="background-color: #e2d5de;">
-        <div class="container py-5 h-100">
-          <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col col-xl-10">
-      
-              <div class="card" style="border-radius: 15px;">
-                <div class="card-body p-5">
-      
-                  <h6 class="mb-3">Awesome Todo List</h6>
-      
-                  <form method = 'POST'>
-                    <br/>
-                    <div class = "form-group">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button class="btn btn-primary">Add</button>
-                  
+    <section class="vh-100" style="background-color: #eee;">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col col-lg-9 col-xl-7">
+            <div class="card rounded-3">
+              <div class="card-body p-4">
+    
+                <h4 class="text-center my-3 pb-3">To Do App</h4>
+    
+                <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2" action = "" method="POST">
+                  {%csrf_token%}
+                  {{form.as_p}}
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Add Task</button>
+                  </div>
+                </form>
+    
+                <table class="table mb-4">
+                  <thead>
+                    <tr>
+                      <th scope="col">No.</th>
+                      <th scope="col">Todo item</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
                   {% for note in notes %}
-                  <ul class="list-group mb-0">
-                    <li
-                      class="list-group-item d-flex justify-content-between align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-2">
-                      <div class="d-flex align-items-center">
-                        <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." />
-                        {{note.newtasks}}
-                      </div>
-                      <a href="#!" data-mdb-toggle="tooltip" title="Remove item">
-                        <i class="fas fa-times text-primary"></i>
-                      </a>
-
-                      <form action="/del/{{note.id}}" method="POST" style=" padding-right: 4%; padding-bottom: 3%;">
-                        {% csrf_token %}
-                        <button value="remove" type="submit"  class="btn btn-primary" style="float: right;"><span class="glyphicon glyphicon-trash"></span> &nbsp; remove</button>
-                      </form>  
-                    </li>
-                    
-                  </ul>
+                  <tbody>
+                    <tr>
+                      <th scope="row">{{note.id}}</th>
+                      <td>{{note.newtasks}}</td>
+                      <td>{{note.priority}}</td>
+                      <td>
+                        <form action = "{% url 'deletetask' note.id %}" method="POST">
+                          {%csrf_token%}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                        <form action = "{% url 'edittask' note.id %}" method="POST">
+                          {%csrf_token%}
+                        <button type="submit" class="btn btn-success ms-1">Edit</button>
+                        </form>
+                      </td>
+                    </tr>
+                  </tbody>
                   {% endfor %}
-                </div>
+                </table>
+    
               </div>
-      
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-    </div>
+    
 
     <!-- Optional JavaScript; choose one of the two! -->
 
